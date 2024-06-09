@@ -1,0 +1,39 @@
+class Solution 
+{
+    static Pair getMinMax(long a[], long n)  
+    {
+        //Write your code here
+  
+  
+        return new Pair(getMin(a,n),getMax(a,n));
+    }
+    static long getMin(long a[],long n)
+    {
+        long small=Integer.MAX_VALUE;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]<small)
+            {
+                small=a[i];
+            }
+        }
+        
+        return small;
+    }
+    
+      static long getMax(long a[],long n)
+    {
+        long large=Integer.MIN_VALUE;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>large)
+            {
+                large=a[i];
+            }
+        }
+        
+        return large;
+    }
+}
