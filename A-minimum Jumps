@@ -1,0 +1,36 @@
+class Solution {
+    static int minJumps(int[] arr, int n) {
+        // your code here
+        
+        if(n<=1)return 0;
+        
+        if(arr[0]==0) return -1;
+        
+        int jumps=1;
+        int steps=arr[0];
+        int maxRenge=arr[0];
+        
+        for(int i=1;i<n;i++)
+        {
+            if(i==n-1) return jumps;
+            
+            maxRenge=Math.max(maxRenge,i+arr[i]);
+            
+            steps--;
+            
+            if(steps==0)
+            {
+                jumps++;
+                
+                if(i>=maxRenge)
+                {
+                    return -1;
+                }
+                
+                steps=maxRenge-i;
+            }
+        }
+        
+        return -1;
+    }
+}
