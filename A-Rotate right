@@ -1,0 +1,40 @@
+
+//// 1St Approach but TLE
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int j=0;
+        while(j<k)
+        {
+            int last=nums[nums.length-1];
+            for(int i=nums.length-2;i>=0;i--)
+            {
+                nums[i+1]=nums[i];
+
+            }
+            nums[0]=last;
+            j++;
+        }
+    }
+
+}
+
+
+/////  2 Approach
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        
+        int n=nums.length;
+        int ans[]=new int[n];
+
+        for(int i=0;i<nums.length;i++)
+        {
+            int curr=(i+k)%n;
+            ans[curr]=nums[i];
+        }
+
+    System.arraycopy(ans,0,nums,0,n);
+    return;
+
+    }
+}
