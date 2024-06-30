@@ -1,0 +1,39 @@
+class Solution {
+    public boolean validPalindrome(String s) {
+        char arr[]=s.toCharArray();
+
+        int st=0;
+        int end=arr.length-1;
+
+        while(st<end)
+        {
+            if(arr[st]==arr[end])
+            {
+                st++;
+                end--;
+            }
+            else{
+                return isPallindrome(arr,st+1,end) ||isPallindrome(arr,st,end-1) ;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean isPallindrome(char arr[],int i,int j)
+    {
+        while(i<j)
+        {
+            if(arr[i]==arr[j])
+            {
+                i++;
+                j--;
+            }else{
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+}
