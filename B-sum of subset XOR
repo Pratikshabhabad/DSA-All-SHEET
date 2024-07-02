@@ -1,0 +1,20 @@
+class Solution {
+    public int subsetXORSum(int[] nums) {
+        int xorSum[]=new int[1];
+         backtrack(nums,0,xorSum,0);
+
+         return xorSum[0];
+    }
+
+    public void backtrack(int nums[],int idx,int xorSum[],int currentSum)
+    {
+        xorSum[0]+=currentSum;
+
+        for(int i=idx;i<nums.length;i++)
+        {
+            backtrack(nums,i+1,xorSum,currentSum^nums[i]);
+        }
+
+
+    }
+}
