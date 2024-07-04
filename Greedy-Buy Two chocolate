@@ -1,0 +1,33 @@
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        
+        Arrays.sort(prices);
+        int amountLeft=money;
+        int sameAmt=money;
+        int chocolateCnt=0;
+        for(int i=0;i<prices.length;i++)
+        {
+            if(prices[i]<=amountLeft  && prices[i]!=sameAmt)
+            {
+               amountLeft-=prices[i];
+                ++chocolateCnt;
+                if(chocolateCnt==2)
+                {
+                    return amountLeft;
+                }
+            }
+        }
+
+        return sameAmt;
+
+
+    //     Arrays.sort(prices);
+    //     int amountLeft=money;
+    //     for(int i=0;i<2;i++)
+    //     {
+    //         amountLeft-=prices[i];
+    //         return amountLeft;
+    //     }
+    //    return money;
+    }
+}
