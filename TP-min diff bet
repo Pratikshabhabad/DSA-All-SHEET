@@ -1,0 +1,17 @@
+class Solution {
+    public int minimumDifference(int[] nums, int k) {
+        
+        Arrays.sort(nums);
+
+        int st=0;
+        int end=st + k-1;
+        int difference=Integer.MAX_VALUE;
+
+        while(end < nums.length)
+        {
+            difference=Math.min(difference,nums[end++]-nums[st++]);
+        }
+        return difference;
+    }
+     
+}
