@@ -1,0 +1,43 @@
+/////// cracked the answer
+class Solution {
+    public int hammingWeight(int n) {
+   
+        int cntOne=0;
+        while(n!=0)
+        {
+            n=n &(n-1);
+            cntOne++;
+        }
+return cntOne;
+    }
+}
+
+/////////// not sufficient
+class Solution {
+    public int hammingWeight(int n) {
+   
+        int cntOne=0;
+        while(n!=0)
+        {
+            if((n&1)==1)
+            {
+                cntOne++;
+            }
+            n=n>>1;
+        }
+return cntOne;
+    }
+}
+
+
+//////////// easy method 
+
+class Solution {
+    public int hammingWeight(int n) {
+        int cnt=Integer.bitCount(n);
+
+        return cnt;
+
+    }
+}
+
