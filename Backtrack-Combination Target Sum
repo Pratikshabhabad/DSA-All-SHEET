@@ -1,0 +1,29 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] nums, int target) {
+        List<List<Integer>>ans=new ArrayList<>();
+
+        backtrack(ans,new ArrayList<>(),nums,target,0);
+        return ans;
+    }
+    public static void backtrack(List<List<Integer>>ans,List<Integer>tempList,int nums[],int remains,int st)
+    {
+
+        if(remains < 0)
+        {
+            return;
+        }
+        else if(remains==0)
+        {
+            ans.add(new ArrayList<>(tempList));
+        }
+        else{
+
+        for(int i=st;i<nums.length;i++)
+        {
+            tempList.add(nums[i]);
+            backtrack(ans,tempList,nums,remains-nums[i],i);
+            tempList.remove(tempList.size()-1);
+        }
+    }
+    }
+}
